@@ -17,4 +17,19 @@
     "github-triage": false,
     "github-pr-search": false,
   },
+  // validation-only: research gateway provider (auth substitution)
+  "provider": {
+    "labgw": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "labgw",
+      "options": {
+        "baseURL": "https://api.openlux.ai/v1",
+        "apiKey": "{env:OPENCODE_API_KEY}"
+      },
+      "models": {
+        "gpt-5.6-luna": {},
+        "gpt-5.6-sol": {}
+      }
+    }
+  }
 }

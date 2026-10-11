@@ -6,7 +6,7 @@ on:
 
 jobs:
   triage:
-    runs-on: blacksmith-4vcpu-ubuntu-2404
+    runs-on: ubuntu-latest  # validation-only: upstream uses blacksmith private runner (never starts on forks)
     permissions:
       contents: read
       issues: write
@@ -38,7 +38,7 @@ jobs:
 
       - name: Install opencode
         if: steps.author.outputs.skip != 'true'
-        run: curl -fsSL https://opencode.ai/install | bash
+        run: npm install -g opencode-ai@1.18.35  # validation-only: pin v1 CLI (v2 ignores agent frontmatter model)
 
       - name: Triage issue
         if: steps.author.outputs.skip != 'true'
